@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: " en-US" }}">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+</head>
+
+<body>
+  <div class="sidebar">
+    <div>
+      <h1 class="header">TEAM RADIANT</h1>
+      <p class="page-description">{{ page.description }}</p>
+    </div>
+    <nav class="navigation header">
+      {%- assign nav = site.pages | sort: "order" -%}
+      {%- for path in nav -%}
+        {%- assign current = site.pages | where: "url", page.url | first -%}
+        {%- if path.title -%}
+          <a class="{%- if path.title == current.title -%}active-page{%- endif -%}" href="{{ path.url | relative_url }}">{{ path.title | upcase }}</a>
+        {%- endif -%}
+      {%- endfor -%}
+    </nav>
+  </div>
+  <section class="content">
+    {{ content }}
+  </section>
+</body>
+
+</html>
