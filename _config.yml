@@ -4,3 +4,4 @@ baseurl: "/team_radiant" # the subpath of your site, e.g. /blog
 title: "Team Radiant" # the name of your site, e.g. ACME Corp.
 sass:
     style: compressed
+future: true
