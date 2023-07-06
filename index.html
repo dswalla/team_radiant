@@ -4,3 +4,22 @@ title: "Feed"
 description: "The one-stop shop for anything and everything Massive-Verse"
 order: 1
 ---
+
+{%- assign posts = site.posts -%}
+
+{%- if posts.size > 0 -%}
+    {%- assign date_format = "%b %-d, %Y" -%}
+    {%- for post in posts -%}
+        <div class="post-container">
+            <h3 class="post-title">
+                <a href="{{ post.url | relative_url }}">
+                    {{ post.title | escape }} - {{ post.date | date: date_format }}
+                </a>
+            </h3>
+            <div class="post-content">
+                <img class="post-image" src="{{ post.image | relative_url }}" alt="{{ post.alt }}" width="238" height="366">
+                {{ post.content | newline_to_br }}
+            </div>
+        </div>
+    {%- endfor -%}
+{%- endif -%}

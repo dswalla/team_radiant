@@ -1,0 +1,16 @@
+---
+layout: "default"
+---
+
+{%- assign date_format = "%b %-d, %Y" -%}
+<div class="post-container">
+    <h3 class="post-title">
+        <a href="{{ page.url | relative_url }}">
+            {{ page.title | escape }} - {{ page.date | date: date_format }}
+        </a>
+    </h3>
+    <div class="post-content">
+        <img class="post-image" src="{{ page.image | relative_url }}" alt="{{ page.alt }}" width="238" height="366">
+        {{ page.content }}
+    </div>
+</div>
