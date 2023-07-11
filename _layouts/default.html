@@ -9,24 +9,45 @@
 </head>
 
 <body>
-  <div class="sidebar">
-    <div>
-      <h1 class="header">TEAM RADIANT</h1>
-      <p class="page-description">{{ page.description }}</p>
-    </div>
-    <nav class="navigation header">
-      {%- assign nav = site.pages | sort: "order" -%}
-      {%- for path in nav -%}
-        {%- assign current = site.pages | where: "url", page.url | first -%}
-        {%- if path.title -%}
-          <a class="{%- if path.title == current.title -%}active-page{%- endif -%}" href="{{ path.url | relative_url }}">{{ path.title | upcase }}</a>
-        {%- endif -%}
-      {%- endfor -%}
-    </nav>
+  <script>
+    function openMenu() {
+      document.getElementById("navigation").style.display = "flex";
+      document.getElementById("close-nav").style.display = "block";
+    }
+
+    function closeMenu() {
+      document.getElementById("navigation").style.display = "none";
+      document.getElementById("close-nav").style.display = "none";
+    }
+  </script>
+  <div id="menu-icon" onclick="openMenu()">
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>
   </div>
-  <section class="content">
-    {{ content }}
-  </section>
+  <div id="close-nav" onclick="closeMenu()">
+    <div></div>
+  </div>
+  <div class="site-container">
+    <div class="sidebar">
+      <div>
+        <h1 class="header">TEAM RADIANT</h1>
+        <p class="page-description">{{ page.description }}</p>
+      </div>
+      <nav id="navigation" class="header">
+        {%- assign nav = site.pages | sort: "order" -%}
+        {%- for path in nav -%}
+          {%- assign current = site.pages | where: "url", page.url | first -%}
+          {%- if path.title -%}
+            <a class="{%- if path.title == current.title -%}active-page{%- endif -%}" href="{{ path.url | relative_url }}">{{ path.title | upcase }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </nav>
+    </div>
+    <section class="content">
+      {{ content }}
+    </section>
+  </div>
 </body>
 
 </html>

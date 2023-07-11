@@ -51,6 +51,11 @@ body {
   background-size: cover;
 }
 
+.site-container {
+  width: 100%;
+  height: 100%;
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -60,21 +65,36 @@ body {
   float: left;
 }
 
+#menu-icon {
+  display: none;
+  float: left;
+}
+
+#close-nav {
+  display: none;
+}
+
+.menu-line {
+  width: 100%;
+  height: 20%;
+  background-color: #ffffff;
+}
+
 .header {
-  font-size: 64px;
+  font-size: 4rem;
   font-weight: 900;
   width: 320px;
   line-height: 0.9;
 }
 
 .page-description {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 200;
   width: 320px;
   height: 52px;
 }
 
-.navigation {
+#navigation {
   display: flex;
   flex-direction: column;
   width: 365px;
@@ -97,17 +117,17 @@ body {
 
 .post-container {
   margin: 25px;
-  max-height: 458px;
+  height: fit-content;
   padding-bottom: 25px;
   border-bottom: solid 1px #ffffff;
 }
 
 .post-title {
-  font-size: 48px;
+  font-size: 3rem;
 }
 
 .post-content {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .post-image {
@@ -115,4 +135,94 @@ body {
   width: auto;
   max-height: 300px;
   margin-left: 15px;
+}
+
+@media (min-width: 1024px) {
+  #navigation {
+    display: flex;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 14px;
+  }
+
+  body {
+    padding: 0;
+    overflow:hidden;
+  }
+
+  #menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+    position: absolute;
+  }
+
+  #close-nav {
+    display: none;
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    padding: 20px 10px;
+    z-index: 2;
+  }
+
+  #close-nav div {
+    width: 100%;
+    height: 100%;
+    background-color:#ffffff;
+  }
+
+  .site-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: block;
+    width: 100%;
+    height: fit-content;
+    margin-top: 5px;
+  }
+
+  .header {
+    width: 85vw;
+    margin: auto;
+    text-align: center;
+  }
+
+  .page-description {
+    width: 100%;
+    text-align: center;
+  }
+
+  #navigation {
+    display: none;
+    padding: 25vh 0;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .post-image {
+    float: none;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin: 0;
+  }
 }
