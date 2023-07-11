@@ -1,5 +1,5 @@
-domain: dswalla.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: https://dswalla.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+domain: dswalla.com     # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://dswalla.com  # the base hostname and protocol for your site, e.g. http://example.com
 baseurl: "/team_radiant" # the subpath of your site, e.g. /blog
 title: "Team Radiant" # the name of your site, e.g. ACME Corp.
 sass:
