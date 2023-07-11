@@ -61,7 +61,7 @@
       var prevScrollpos = contentWindow.scrollTop;
       contentWindow.onscroll = function () {
         var currentScrollPos = contentWindow.scrollTop;
-        if (prevScrollpos > currentScrollPos) {
+        if (prevScrollpos > currentScrollPos || currentScrollPos == 0) {
           header.style.height = "100px";
           header.style.opacity = 1;
           menuIcon.style.display = "flex";
