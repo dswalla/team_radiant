@@ -62,17 +62,18 @@
       contentWindow.onscroll = function () {
         var currentScrollPos = contentWindow.scrollTop;
         if (prevScrollpos > currentScrollPos || currentScrollPos == 0) {
-          header.style.height = "100px";
+          header.style.maxHeight = "150px";
           header.style.opacity = 1;
           menuIcon.style.display = "flex";
         } else {
-          header.style.height = "0";
+          header.style.maxHeight = "0";
           header.style.opacity = 0;
           menuIcon.style.display = "none";
         }
         prevScrollpos = currentScrollPos;
       }
     } else {
+      header.style.maxHeight = "100%";
       header.style.height = "100%";
       header.style.opacity = 1;
       nav.style.display = "flex";
